@@ -50,6 +50,16 @@ Before building the app we will add another few nodes to add an Web endpoint.
 9. Build and push the image :  
   `docker buildx build --platform linux/amd64,linux/arm/v7 -t binnes/node-red-docker-sample --push .`  
   replace **binnes** with your docker username.  Here you see we are asking to build an image for 3 different architectures.  AMD/Intel 64 bit, ARM 64bit and ARM 32bit v7 (Raspberry Pi 3/4).  You can also add additional architectures, such as **linux/s390x** to add support for IBM Z systems or **linux/ppc64le** for IBM POWER systems
+  `ec2-user$ cd ~/.node-red/projects/Node-RED-Docker/`
+  `ec2-user$ ls`
+  `Dockerfile	README.md	flows_cred.json	server.js`
+  `LICENSE		flows.json	package.json	settings.js`
+  `ec2-user$ docker buildx build --platform linux/amd64,linux/arm/v7 -t ozgurgul/node-red-docker-sample --push .`
+  `[+] Building 323.9s (42/42) FINISHED   ` 
+  `=> [internal] load .dockerignore                                          0.0s`
+  `=> => transferring context: 2B                                            0.0s`
+  `=> [internal] load build definition from Dockerfile                       0.0s`
+ 
 10. Inspect the image using command  
   `docker buildx imagetools inspect docker.io/binnes/node-red-docker-sample:latest`
 11. Stop your local Node-RED using **Ctrl-C** in the command line window you started Node-RED in,  then run the container using command :  
